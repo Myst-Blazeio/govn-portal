@@ -1,33 +1,9 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import { Box, Link, Typography, Button } from '@mui/material';
+import { FooterContainer, SocialIcons, FooterButton } from '../../styles/Footer.styled';
+import { Box, Typography } from '@mui/material';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
-const FooterContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#E0F2F2',
-  padding: '20px',
-  display: 'flex',
-  justifyContent: 'left',
-  alignItems: 'center',
-  
-}));
-
-const SocialIcons = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'spaced-',
-}));
-
-const FooterButton = styled(Button)(({ theme }) => ({
-    height: 40,
-  backgroundColor: '#30504f',
-  color: '#fff',
-  '&:hover': {
-    backgroundColor: '#213429',
-  },
-}));
-
-const FooterComponent = () => {
+const FooterLinks = () => {
   return (
     <FooterContainer>
       <Box>
@@ -53,14 +29,15 @@ const FooterComponent = () => {
           </a>
         </SocialIcons>
       </Box>
-      <Box sx={{marginLeft:10}}>
+      <Box sx={{ marginLeft: 10 }}>
         <Typography variant="h6">More About ISGPP</Typography>
-        <FooterButton href="https://isgpp.wordpress.com/" target="_blank" variant="contained">ISGPP Blog
-            <YouTubeIcon fontSize="large" sx={{marginLeft:1}} />
+        <FooterButton href="https://isgpp.wordpress.com/" target="_blank" variant="contained">
+          ISGPP Blog
+          <YouTubeIcon fontSize="large" sx={{ marginLeft: 1 }} />
         </FooterButton>
       </Box>
     </FooterContainer>
   );
 };
 
-export default FooterComponent;
+export default FooterLinks;

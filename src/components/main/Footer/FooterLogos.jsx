@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-const LogoComponent = () => {
+const FooterLogos = () => {
   const logos = [
     { src: '../images/clientImg.png', alt: 'Data.Govn' },
     { src: '../images/clientImg2.png', alt: 'India.govn.in' },
@@ -30,4 +30,4 @@ const LogoComponent = () => {
   );
 };
 
-export default LogoComponent;
+export default FooterLogos;

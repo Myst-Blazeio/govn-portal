@@ -4,10 +4,8 @@ import {
   HashRouter as Router,
   Route, Routes
 } from "react-router-dom";
-import HomePage from './components/auth/Homepage';
+import HomePage from './components/main/HomePage';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 
 const App = () => {

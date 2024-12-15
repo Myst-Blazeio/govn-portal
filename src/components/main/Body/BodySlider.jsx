@@ -1,8 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-import { css } from '@emotion/react';
+import {
+  SliderContainer,
+  SliderImage,
+  SliderText,
+  Title,
+  Subtitle,
+  Logo,
+  ArrowButton,
+} from '../../styles/Body.styled';
 
 const sliderItems = [
   {
@@ -85,7 +93,8 @@ const sliderItems = [
   },
 ];
 
-const Slider = () => {
+
+const BodySlider = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   const handleNext = () => {
@@ -99,103 +108,45 @@ const Slider = () => {
   };
 
   return (
-    <Box
-      css={css`
-        position: relative;
-        width: 100%;
-        height: 400px;
-      `}
-    >
-      <Box
-        css={css`
-          background-image: url(${sliderItems[activeIndex].image});
-          background-size: cover;
-          background-position: center;
-          height: 100%;
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
-          padding: 0 20px;
-        `}
-      >
-        <Box
-          css={css`
-            background: rgba(255, 255, 255, 0.7);
-            padding: 20px;
-            border-radius: 5px;
-          `}
-        >
-          <Typography
-            variant="h3"
-            css={css`
-              color: black;
-              font-weight: bold;
-            `}
-          >
-            {sliderItems[activeIndex].title}
-          </Typography>
-          <Typography
-            variant="h5"
-            css={css`
-              color: green;
-            `}
-          >
-            {sliderItems[activeIndex].subtitle1}
-          </Typography>
-          <Typography
-            variant="h5"
-            css={css`
-              color: green;
-            `}
-          >
-            {sliderItems[activeIndex].subtitle2}
-          </Typography>
-          <img src="../images/logoBanner.png" alt="ISGPP Logo" style={{ borderRadius: '5px'}} />
-        </Box>
-        
-      </Box>
+    <SliderContainer>
+      <SliderImage image={sliderItems[activeIndex].image}>
+        <SliderText>
+          <Title variant="h3">{sliderItems[activeIndex].title}</Title>
+          <Subtitle variant="h5">{sliderItems[activeIndex].subtitle1}</Subtitle>
+          <Subtitle variant="h5">{sliderItems[activeIndex].subtitle2}</Subtitle>
+          <Logo src="../images/logoBanner.png" alt="ISGPP Logo" />
+        </SliderText>
+      </SliderImage>
 
       <Box
-        sx={css`
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          z-index: 1;
-        `}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: 0,
+          transform: 'translateY(-50%)',
+          zIndex: 1,
+        }}
       >
-        <IconButton
-          onClick={handlePrev}
-          css={css`
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-          `}
-        >
+        <ArrowButton onClick={handlePrev}>
           <ChevronLeft />
-        </IconButton>
+        </ArrowButton>
       </Box>
 
       <Box
-        css={css`
-          position: absolute;
-          top: 50%;
-          right: 0;
-          transform: translateY(-50%);
-          z-index: 1;
-        `}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: 0,
+          transform: 'translateY(-50%)',
+          zIndex: 1,
+        }}
       >
-        <IconButton
-          onClick={handleNext}
-          css={css`
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-          `}
-        >
+        <ArrowButton onClick={handleNext}>
           <ChevronRight />
-        </IconButton>
+        </ArrowButton>
       </Box>
-    </Box>
+    </SliderContainer>
   );
 };
 
-export default Slider;
+export default BodySlider;
